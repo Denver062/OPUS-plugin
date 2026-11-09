@@ -1,0 +1,289 @@
+{
+  "id": "schun-aod",
+  "name": "Schun AOD",
+  "version": "1.0.0",
+  "author": "Schun",
+  "description": "School always-on display screensaver with timetable, meals, weather, and quotes.",
+  "category": "utility",
+  "entry": "schun.scr",
+  "settings": {
+    "title": "Schun AOD Settings",
+    "fields": [
+      {
+        "key": "widgets",
+        "type": "widgets",
+        "label": "Widgets",
+        "description": "Turn each AOD widget on or off.",
+        "section": "Widgets",
+        "items": [
+          { "id": "clock", "kind": "clock", "label": "시계", "description": "큰 시간 표시", "enabled": true },
+          { "id": "date", "kind": "date", "label": "날짜", "description": "오늘 날짜", "enabled": true },
+          { "id": "timetable", "kind": "timetable", "label": "시간표", "description": "오늘의 수업", "enabled": true },
+          { "id": "meal", "kind": "meal", "label": "급식", "description": "오늘의 급식", "enabled": true },
+          { "id": "weather", "kind": "weather", "label": "날씨", "description": "현재 날씨", "enabled": true },
+          { "id": "quote", "kind": "quote", "label": "명언", "description": "화면 가운데 문구", "enabled": true },
+          { "id": "hint", "kind": "hint", "label": "안내 문구", "description": "터치 안내", "enabled": true },
+          { "id": "calendar", "kind": "calendar", "label": "캘린더", "description": "대한민국/학급 일정", "enabled": true }
+        ]
+      },
+      {
+        "key": "pixelShift",
+        "type": "boolean",
+        "label": "Pixel shift",
+        "description": "Move the clock slightly over time to reduce OLED burn-in.",
+        "default": true,
+        "section": "Display"
+      },
+      {
+        "key": "keepDisplayOn",
+        "type": "boolean",
+        "label": "Keep display on",
+        "description": "Prevent the display from turning off while the AOD is running.",
+        "default": false,
+        "section": "Display"
+      },
+      {
+        "key": "brightnessLevel",
+        "type": "select",
+        "label": "Clock brightness",
+        "default": "1",
+        "options": [
+          { "value": "0", "label": "Dim" },
+          { "value": "1", "label": "Normal" },
+          { "value": "2", "label": "Bright" }
+        ],
+        "section": "Display"
+      },
+      {
+        "key": "school",
+        "type": "school",
+        "label": "School",
+        "description": "Search by school name. OPUS fills the NEIS office and school codes automatically.",
+        "bind": {
+          "name": "schoolName",
+          "office": "officeCode",
+          "code": "schoolCode"
+        },
+        "section": "School"
+      },
+      {
+        "key": "schoolName",
+        "type": "text",
+        "hidden": true,
+        "default": "세일중학교",
+        "section": "School"
+      },
+      {
+        "key": "officeCode",
+        "type": "text",
+        "hidden": true,
+        "default": "B10",
+        "section": "School"
+      },
+      {
+        "key": "schoolCode",
+        "type": "text",
+        "hidden": true,
+        "default": "7041181",
+        "section": "School"
+      },
+      {
+        "key": "grade",
+        "type": "number",
+        "label": "Grade",
+        "min": 1,
+        "max": 3,
+        "step": 1,
+        "default": 1,
+        "section": "School"
+      },
+      {
+        "key": "classNumber",
+        "type": "number",
+        "label": "Class",
+        "min": 1,
+        "max": 20,
+        "step": 1,
+        "default": 3,
+        "section": "School"
+      },
+      {
+        "key": "weatherLocation",
+        "type": "location",
+        "label": "Weather location",
+        "description": "Base the weather on your school, your current location, or a place you search for.",
+        "section": "Weather",
+        "defaultMode": "school",
+        "bind": {
+          "mode": "weatherMode",
+          "name": "weatherPlaceName",
+          "lat": "weatherLat",
+          "lon": "weatherLon",
+          "schoolName": "schoolName"
+        },
+        "modes": [
+          { "value": "school", "label": "School" },
+          { "value": "current", "label": "Current location" },
+          { "value": "custom", "label": "Custom place" }
+        ]
+      },
+      {
+        "key": "weatherMode",
+        "type": "select",
+        "hidden": true,
+        "default": "school"
+      },
+      {
+        "key": "weatherPlaceName",
+        "type": "text",
+        "hidden": true,
+        "default": "세일중학교"
+      },
+      {
+        "key": "weatherLat",
+        "type": "text",
+        "hidden": true,
+        "default": "37.4744202"
+      },
+      {
+        "key": "weatherLon",
+        "type": "text",
+        "hidden": true,
+        "default": "126.8957082"
+      },
+      {
+        "key": "useManualTimetable",
+        "type": "boolean",
+        "label": "Use manual timetable",
+        "description": "Use the timetable saved by the app instead of NEIS data.",
+        "default": false,
+        "section": "Timetable"
+      },
+      {
+        "key": "calendarShowHolidays",
+        "type": "boolean",
+        "label": "대한민국 공휴일",
+        "description": "Show Korean public holidays in the calendar widget.",
+        "default": true,
+        "section": "Calendar"
+      },
+      {
+        "key": "calendarShowClass",
+        "type": "boolean",
+        "label": "학급 일정",
+        "description": "Show class events from the list below or from an ICS feed.",
+        "default": true,
+        "section": "Calendar"
+      },
+      {
+        "key": "calendarClassEvents",
+        "type": "textarea",
+        "label": "학급 일정 목록",
+        "description": "One event per line. Use YYYY-MM-DD or MM-DD followed by the title.",
+        "placeholder": "2026-11-05 체육대회\n11-12 학부모 상담",
+        "default": "",
+        "section": "Calendar"
+      },
+      {
+        "key": "calendarClassEventsFile",
+        "type": "file",
+        "label": "학급 일정 파일",
+        "description": "Load class events from a local .ics, .json, .txt or .csv file. Events are merged with the list above.",
+        "placeholder": "C:\\Users\\me\\Documents\\class-calendar.ics",
+        "filters": "일정 파일|*.ics;*.json;*.txt;*.csv|iCalendar|*.ics|JSON|*.json|Text / CSV|*.txt;*.csv|All files|*.*",
+        "default": "",
+        "section": "Calendar"
+      },
+      {
+        "key": "calendarIcsUrl",
+        "type": "url",
+        "label": "학급 일정 ICS URL",
+        "description": "Optional iCalendar feed, such as a Google Calendar secret iCal address.",
+        "default": "",
+        "section": "Calendar"
+      },
+      {
+        "key": "calendarDaysAhead",
+        "type": "range",
+        "label": "Look ahead",
+        "description": "How many days of upcoming events the calendar widget shows.",
+        "min": 1,
+        "max": 30,
+        "step": 1,
+        "default": 10,
+        "unit": "days",
+        "section": "Calendar"
+      },
+      {
+        "key": "backgroundPreview",
+        "type": "preview",
+        "label": "배경 미리보기",
+        "description": "각 단계에서 실제로 표시되는 배경입니다. 탭을 눌러 단계를 바꿔 보세요.",
+        "section": "Background",
+        "presentation": "aod",
+        "tabs": [
+          {
+            "label": "일반",
+            "stage": "normal",
+            "source": "wallpaperNormalPath",
+            "empty": "desktop",
+            "emptyLabel": "Windows 바탕화면 사용"
+          },
+          {
+            "label": "절전",
+            "stage": "dim",
+            "source": "wallpaperDimPath",
+            "empty": "desktop",
+            "emptyFrom": "wallpaperNormalPath",
+            "emptyLabel": "일반 배경 유지",
+            "emptyFromLabel": "일반 배경을 그대로 사용합니다"
+          },
+          {
+            "label": "초절전",
+            "stage": "save",
+            "source": "wallpaperSavePath",
+            "emptyLabel": "검은 화면",
+            "stillOnly": true,
+            "stillOnlyLabel": "초절전 단계에서는 GIF / 동영상이 재생되지 않아 검은 화면이 됩니다"
+          }
+        ]
+      },
+      {
+        "key": "wallpaperNormalPath",
+        "type": "file",
+        "label": "일반 배경",
+        "description": "Image, GIF or video file used in the normal stage. Leave empty to use the Windows desktop wallpaper.",
+        "placeholder": "Windows 바탕화면 사용 (비워 두기)",
+        "filters": "배경 파일|*.png;*.jpg;*.jpeg;*.bmp;*.gif;*.mp4;*.wmv;*.avi;*.mov;*.m4v;*.mkv|Images|*.png;*.jpg;*.jpeg;*.bmp|GIF|*.gif|Videos|*.mp4;*.wmv;*.avi;*.mov;*.m4v;*.mkv|All files|*.*",
+        "default": "",
+        "section": "Background"
+      },
+      {
+        "key": "wallpaperDimPath",
+        "type": "file",
+        "label": "절전 배경",
+        "description": "Background for the power-saving stage. Image, GIF or video. Leave empty to keep the normal background.",
+        "placeholder": "일반 배경 유지 (비워 두기)",
+        "filters": "배경 파일|*.png;*.jpg;*.jpeg;*.bmp;*.gif;*.mp4;*.wmv;*.avi;*.mov;*.m4v;*.mkv|Images|*.png;*.jpg;*.jpeg;*.bmp|GIF|*.gif|Videos|*.mp4;*.wmv;*.avi;*.mov;*.m4v;*.mkv|All files|*.*",
+        "default": "",
+        "section": "Background"
+      },
+      {
+        "key": "wallpaperSavePath",
+        "type": "file",
+        "label": "초절전 배경",
+        "description": "Still image shown in the ultra power-saving stage. GIF/video playback always stops there; leave empty for a black screen.",
+        "placeholder": "검은 화면 (비워 두기)",
+        "filters": "Images|*.png;*.jpg;*.jpeg;*.bmp;*.tif;*.tiff|All files|*.*",
+        "default": "",
+        "section": "Background"
+      }
+    ]
+  },
+  "commands": {
+    "start": ["{entry}", "/s"],
+    "settings": ["{entry}", "/c"],
+    "install": ["{entry}", "/i"],
+    "uninstall": ["{entry}", "/u"]
+  }
+}
