@@ -1,13 +1,6 @@
 {
   "tagline": "A calm always-on display for classrooms and desks",
-  "about": "Schun AOD turns a spare screen into a school display: a live clock, today's timetable, the cafeteria menu, weather and a daily quote on one dimmed, burn-in friendly screen. Pick your school and class inside OPUS and NEIS timetable and meal data load without any extra setup.",
-  "features": [
-    "Clock, date and today's timetable at a glance",
-    "NEIS cafeteria menu for the current week",
-    "Weather from your school, your location or a place you pick",
-    "Pixel shift and brightness control to protect OLED screens",
-    "Every widget can be switched on or off"
-  ],
+  "about": "Schun AOD turns a spare screen into a calm classroom display. A large clock and the date sit in the middle, with today's timetable and this week's cafeteria menu from NEIS beside it, weather for your school or a place you choose, and a quiet daily quote. Everything runs on one dimmed, low-brightness screen with pixel shift and a brightness control so OLED panels are not burned in by the clock. Pick your school and class inside OPUS once and the timetable and meals arrive on their own; the clock, date, timetable, meals, weather, quote, calendar and hint line can each be turned off when you do not need them.",
   "changelog": "1.0.0 - First public release.",
   "icon": "icon.png",
   "screenshots": [],

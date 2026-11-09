@@ -23,7 +23,7 @@ catalog.json                          # the list OPUS downloads
 apps/<id>/
   app/opus-app.json                   # installer manifest (source of truth)
   package/<id>-<version>.zip          # downloadable package: opus-app.json + entry
-  preview/preview.json                # store page text (tagline, about, features)
+  preview/preview.json                # store page text (tagline, about, changelog)
   preview/icon.png                    # optional app icon
   preview/screenshot-1.png            # optional screenshots
 ```
@@ -56,8 +56,7 @@ schun-aod-1.0.0.zip
 ```json
 {
   "tagline": "One line shown under the app name",
-  "about": "Longer paragraph for the app.",
-  "features": ["What it does", "Another highlight"],
+  "about": "The store page body. Describe what the app does and what makes it useful in a few sentences of normal prose - no bullet lists.",
   "changelog": "1.0.0 - First public release.",
   "icon": "icon.png",
   "screenshots": ["screenshot-1.png"],
@@ -65,6 +64,8 @@ schun-aod-1.0.0.zip
 }
 ```
 
+* `about` is the only place features are described; OPUS shows the first few
+  lines on the card and the rest behind **More**.
 * `icon` and `screenshots` are file names inside `preview/`. Leave them empty
   and the publisher picks up `icon.png` and `screenshot-*.png` automatically.
 * `released` defaults to the publish date when omitted.
@@ -101,7 +102,6 @@ The flag is copied into the catalog as `"edu": true`.
   "preview": {
     "tagline": "What it does",
     "about": "Longer paragraph for the app.",
-    "features": ["What it does"],
     "changelog": "1.0.0 - First public release.",
     "icon_url": "https://raw.githubusercontent.com/Denver062/OPUS-plugin/main/apps/my-app/preview/icon.png",
     "screenshots": [],
