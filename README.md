@@ -62,11 +62,10 @@ schun-aod-1.0.0.zip
 
 ## Releasing a new version
 
-Keep the zip URL versioned (`my-app-1.1.0.zip`) and bump both `version` and
-`download_url` in `catalog.json`. OPUS compares the catalog version against the
+Bump `version` in the app's `opus-app.json`, then run `publish-plugin.ps1` from
+the OPUS source tree. It repacks the app, rewrites `catalog.json` (version +
+versioned zip URL), and pushes. OPUS compares the catalog version against the
 installed manifest version and shows an **Update** button when they differ.
-
-In the OPUS source tree the whole flow is automated:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File publish-plugin.ps1
