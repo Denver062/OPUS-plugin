@@ -5,6 +5,7 @@
   "author": "Schun",
   "description": "School always-on display screensaver with timetable, meals, weather, and quotes.",
   "category": "utility",
+  "edu": true,
   "entry": "schun.scr",
   "settings": {
     "title": "Schun AOD Settings",

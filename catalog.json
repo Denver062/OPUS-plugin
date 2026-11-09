@@ -9,8 +9,26 @@
       "version": "1.0.0",
       "author": "Schun",
       "category": "utility",
+      "edu": true,
       "repo_url": "https://github.com/Denver062/OPUS-plugin",
-      "download_url": "https://raw.githubusercontent.com/Denver062/OPUS-plugin/main/packages/schun-aod-1.0.0.zip"
+      "download_url": "https://raw.githubusercontent.com/Denver062/OPUS-plugin/main/apps/schun-aod/package/schun-aod-1.0.0.zip",
+      "preview_url": "https://raw.githubusercontent.com/Denver062/OPUS-plugin/main/apps/schun-aod/preview/preview.json",
+      "preview": {
+        "tagline": "A calm always-on display for classrooms and desks",
+        "about": "Schun AOD turns a spare screen into a school display: a live clock, today's timetable, the cafeteria menu, weather and a daily quote on one dimmed, burn-in friendly screen. Pick your school and class inside OPUS and NEIS timetable and meal data load without any extra setup.",
+        "features": [
+          "Clock, date and today's timetable at a glance",
+          "NEIS cafeteria menu for the current week",
+          "Weather from your school, your location or a place you pick",
+          "Pixel shift and brightness control to protect OLED screens",
+          "Every widget can be switched on or off"
+        ],
+        "changelog": "1.0.0 - First public release.",
+        "icon_url": "https://raw.githubusercontent.com/Denver062/OPUS-plugin/main/apps/schun-aod/preview/icon.png",
+        "screenshots": [],
+        "size_bytes": 2267408,
+        "released": "2026-11-09"
+      }
     }
   ]
 }
